@@ -4,16 +4,22 @@
 
 格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)。
 
+## [0.1.2] - 2026-07-14
+
+### 变更
+
+- README 重写为「先回答能不能用，再回答怎么用」
+- 新增工具支持矩阵表：Codex / Claude Code / Cursor / Trae / OpenCode / GitHub Copilot / Windsurf / ChatGPT
+- 明确「99% 工具都能用」的兜底章节，给出 6 个其他工具的具体粘贴位置
+- Cursor 章节强调「只复制 SKILL.md 主入口」，避免把整个 references/ 搬过去
+- 「为什么是通用」独立成章，解释 SKILL.md 是自包含入口
+
 ## [0.1.1] - 2026-07-14
 
 ### 变更
 
-- README 重写：从「Codex 专属」改为「跨工具通用 Skill」
-- 新增 5 个 AI 工具的安装教程：Codex / Claude Code / Cursor / Trae / OpenCode
-- Claude Code 提供两种集成方式：Subagent 和 Slash Command
-- 明确 Cursor 仅支持单文件规则，并给出限制说明
-- 新增「其他任何 AI 工具」通用安装方式（粘贴 SKILL.md）
-- 设计原则增加「工具中立」一条
+- README 从「Codex 专属」改为「跨工具通用 Skill」
+- 新增 5 个 AI 工具的安装教程
 
 ## [0.1.0] - 2026-07-14
 
@@ -27,12 +33,6 @@
 - 7 项单元测试 + 5 组前向行为测试
 - 案例库 CLI（add / validate）和自动索引
 
-### 文档
-
-- README.md
-- CONTRIBUTING.md
-- CHANGELOG.md
-- LICENSE (MIT)
-
 [0.1.0]: https://github.com/jingting969/productize-your-skills/releases/tag/v0.1.0
 [0.1.1]: https://github.com/jingting969/productize-your-skills/releases/tag/v0.1.1
+[0.1.2]: https://github.com/jingting969/productize-your-skills/releases/tag/v0.1.2
