@@ -1,11 +1,11 @@
 # productize-your-skills
 
 > **通用 Agent Skill**：从个人经历与能力证据生成可试卖产品、三级定价和首批销售验证方案。
-> **不绑定任何 AI 工具**。Codex / Claude Code / Cursor / Trae / OpenCode 全部可用。
+> **遵循 [Agent Skills 开放标准](https://agentskills.io)**。Codex / Claude Code / Cursor / Trae / OpenCode 全部原生支持。
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 ![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue)
-![Skill Type](https://img.shields.io/badge/type-agent_skill-purple)
+![Standard](https://img.shields.io/badge/standard-Agent%20Skills-purple)
 
 ## 它解决什么问题
 
@@ -20,19 +20,19 @@
 
 **所有支持自定义指令的 AI 工具都能用。** 下面是已经实测过的清单：
 
-| AI 工具 | 支持 | 安装难度 | 用户感受 |
-| --- | :-: | :-: | --- |
-| **Codex**（CLI / App / Desktop） | ✅ | 一行命令 | Skill 自动出现在列表里，可直接调用 |
-| **Claude Code** | ✅ | 两行命令 | 作为 Subagent 自动加载，或作为 Slash Command |
-| **Cursor** | ✅ | 一行命令 | 作为项目规则自动生效，Cursor 会"懂"你的产品化意图 |
-| **Trae** | ✅ | 一行命令 | 作为项目 Skill 自动加载 |
-| **OpenCode** | ✅ | 一行命令 | 作为 Skill 自动加载 |
-| **GitHub Copilot** | ✅ | 粘贴进 Instructions | 作为项目说明生效 |
-| **Windsurf** | ✅ | 粘贴进 Rules | 作为全局规则生效 |
-| **ChatGPT**（Custom GPT / Projects） | ✅ | 粘贴到 Instructions | 作为自定义指令生效 |
-| **任何其他工具** | ✅ | 粘贴 `SKILL.md` | 只要支持自定义系统提示，就能用 |
+| AI 工具 | 支持 | 安装路径 |
+| --- | :-: | --- |
+| **Codex**（CLI / App / Desktop） | ✅ | `~/.codex/skills/` |
+| **Claude Code** | ✅ | `~/.claude/skills/` 或 `.claude/skills/` |
+| **Cursor** | ✅ | `.cursor/skills/` 或 `.cursor/rules/` |
+| **Trae** | ✅ | `.trae/skills/` |
+| **OpenCode** | ✅ | `~/.opencode/skills/` |
+| **GitHub Copilot** | ✅ | 仓库 Copilot Instructions |
+| **Windsurf** | ✅ | Global Rules |
+| **ChatGPT**（Custom GPT / Projects） | ✅ | Custom Instructions |
+| **其他任何工具** | ✅ | 粘贴 `SKILL.md` |
 
-> 如果你用的工具不在上面，**99% 也能用**——看文末「其他工具通用方法」。
+> **好消息**：Claude Code 官方明确说 Skills 遵循 **Agent Skills 开放标准**——这意味着 Claude Code、Codex、Cursor 等工具正在向同一套规范靠拢。本 Skill 正是按这个标准实现的。
 
 ---
 
@@ -47,35 +47,46 @@ cp -R productize-your-skills ~/.codex/skills/
 
 重启 Codex，Skill 列表里会出现「能力产品化」。
 
-### Claude Code
+> Skill 根目录支持三种：
+> - 全局：`~/.codex/skills/`
+> - 项目：`<project>/.codex/skills/`
+> - Desktop：`~/Library/Application Support/Codex/skills/`
+
+### Claude Code ✅ 推荐
+
+Claude Code 官方把这种能力叫 **Skills**，**遵循 Agent Skills 开放标准**。
 
 ```bash
-# 作为 Subagent（自动加载）
-mkdir -p ~/.claude/agents
-cp -R productize-your-skills ~/.claude/agents/productize-your-skills
+# 个人全局（跨项目可用）
+mkdir -p ~/.claude/skills
+cp -R productize-your-skills ~/.claude/skills/productize-your-skills
 
-# 或者作为 Slash Command（手动触发）
-mkdir -p ~/.claude/commands
-cp productize-your-skills/SKILL.md ~/.claude/commands/productize.md
+# 或项目级别（仅当前项目可用）
+mkdir -p .claude/skills
+cp -R productize-your-skills .claude/skills/productize-your-skills
 ```
 
-用法：直接说"用 productize-your-skills 帮我做能力产品化"，或输入 `/productize`。
+Claude Code 会自动读取 `SKILL.md` 的 frontmatter（`name` + `description`）作为 Skill 元信息，并在需要时自动加载，或者你可以通过 `/productize-your-skills` 直接调用。
+
+> **关于旧的 `.claude/commands/`**：Claude Code 已经把自定义命令合并到 Skills 体系，但旧文件**仍然兼容**。
 
 ### Cursor
 
 ```bash
 # 项目级别（推荐：每个项目有自己的产品化规则）
-mkdir -p .cursor/rules
-cp productize-your-skills/SKILL.md .cursor/rules/productize.mdc
+mkdir -p .cursor/skills
+cp -R productize-your-skills .cursor/skills/productize-your-skills
 
-# 或者全局（在家所有项目都用同一套）
-mkdir -p ~/.cursor/rules
-cp productize-your-skills/SKILL.md ~/.cursor/rules/productize.mdc
+# 或全局（在家所有项目都用同一套）
+mkdir -p ~/.cursor/skills
+cp -R productize-your-skills ~/.cursor/skills/productize-your-skills
 ```
 
-> **重要**：Cursor 规则是「每次回答都自动读取」，所以**只复制 `SKILL.md`**，不要把整个目录搬过去。`references/` 是给 AI 按需读取的方法论，不是规则。
-
-用法：在 Cursor 里直接对话就行——它会按 `SKILL.md` 的工作流主动提问和生成方案。也可以 `@productize` 显式引用。
+> Cursor 同时支持两种方式：
+> - **Skills 模式（推荐）**：`SKILL.md` 入口，会按需读取 references/
+> - **Rules 模式（仅限精简场景）**：`cp SKILL.md .cursor/rules/productize.mdc`，只复制主入口
+>
+> Cursor 规则是「每次回答都自动读取」，所以 Rules 模式下**只复制 `SKILL.md`**，不要把整个目录搬过去。
 
 ### Trae
 
@@ -84,7 +95,7 @@ cp productize-your-skills/SKILL.md ~/.cursor/rules/productize.mdc
 mkdir -p .trae/skills
 cp -R productize-your-skills .trae/skills/
 
-# 或者全局
+# 或全局
 mkdir -p ~/.trae/skills
 cp -R productize-your-skills ~/.trae/skills/
 ```
@@ -111,7 +122,7 @@ cat productize-your-skills/SKILL.md
 - **GitHub Copilot** → 仓库 Settings → Copilot → Instructions → 粘贴
 - **Windsurf** → Settings → Rules → Global Rules → 粘贴
 - **ChatGPT** → 创建 Custom GPT → Instructions → 粘贴；或 Project → Instructions → 粘贴
-- **Cline / Continue / Roo Code** → 编辑 `.clinerules` / `.continuerules` → 粘贴
+- **Cline / Continue / Roo Code** → `.clinerules` / `.continuerules` → 粘贴
 - **Zed** → `.zed/rules` → 粘贴
 - **JetBrains AI Assistant** → Settings → AI Assistant → 项目规则 → 粘贴
 
@@ -172,13 +183,13 @@ python3 scripts/validate_case.py
 
 ## 为什么是「通用」？
 
-大多数 AI 工具都支持某种形式的"自定义指令"（skill / agent / rule / command），但叫法和目录不一样。这个 Skill 的做法：
+大多数 AI 工具都支持某种形式的"自定义指令"（Skill / Agent / Rule / Command），但叫法和目录不一样。这个 Skill 的做法：
 
 - **`SKILL.md` = 一份自包含的入口提示词**，任何 AI 工具读到它，都能启动能力产品化工作流
 - **`references/` = 按需加载的方法论**，避免污染上下文
 - **`scripts/` = 案例库 CLI**，与 AI 工具无关，可独立运行
 
-**所以无论你用什么 AI 工具，只要把 `SKILL.md` 喂给它，它就具备能力产品化的能力。**
+**Claude Code 官方明确说 Skills 遵循 Agent Skills 开放标准**——这意味着跨工具的标准正在收敛。本 Skill 直接对齐这个标准，让 Codex / Claude Code / Cursor 都能"开箱即用"。
 
 ---
 
@@ -215,6 +226,7 @@ productize-your-skills/
 - **用户自身证据 > 案例库** — 案例只用于类比，不直接照抄
 - **不做结果承诺** — 所有市场、支付意愿、价格判断在未验证前都标记为假设
 - **工具中立** — 核心是一份提示词 + 一组方法论，不绑定任何 AI 工具
+- **遵循开放标准** — 对齐 Agent Skills 开放标准，跨工具兼容
 
 ---
 
@@ -247,6 +259,14 @@ python3 /path/to/skill-creator/scripts/quick_validate.py .
 - Bug 修复
 
 请阅读 `CONTRIBUTING.md` 后再提 PR。
+
+---
+
+## 参考资料
+
+- [Agent Skills 开放标准](https://agentskills.io)
+- [Claude Code Skills 文档](https://docs.claude.com/en/docs/claude-code/skills)
+- [Codex Skills 文档](https://github.com/openai/codex)
 
 ---
 

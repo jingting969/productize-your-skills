@@ -4,22 +4,29 @@
 
 格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)。
 
+## [0.1.3] - 2026-07-14
+
+### 修正
+
+- **Claude Code 章节修正**：从「Subagent / Slash Command」改为「Skills」，路径用 `~/.claude/skills/<name>/SKILL.md`
+- 删除 `.claude/agents/` 和 `.claude/commands/` 旧说法（Claude Code 官方已合并到 Skills）
+- 顶部声明加上「遵循 Agent Skills 开放标准」并链接 https://agentskills.io
+- Cursor 改为 `.cursor/skills/`（保留 `.cursor/rules/` 作为精简场景备选）
+- 新增「参考资料」章节，链接 Claude Code 官方 Skills 文档
+- 设计原则新增「遵循开放标准」一条
+
 ## [0.1.2] - 2026-07-14
 
 ### 变更
 
 - README 重写为「先回答能不能用，再回答怎么用」
-- 新增工具支持矩阵表：Codex / Claude Code / Cursor / Trae / OpenCode / GitHub Copilot / Windsurf / ChatGPT
-- 明确「99% 工具都能用」的兜底章节，给出 6 个其他工具的具体粘贴位置
-- Cursor 章节强调「只复制 SKILL.md 主入口」，避免把整个 references/ 搬过去
-- 「为什么是通用」独立成章，解释 SKILL.md 是自包含入口
+- 新增工具支持矩阵表
 
 ## [0.1.1] - 2026-07-14
 
 ### 变更
 
 - README 从「Codex 专属」改为「跨工具通用 Skill」
-- 新增 5 个 AI 工具的安装教程
 
 ## [0.1.0] - 2026-07-14
 
@@ -36,3 +43,4 @@
 [0.1.0]: https://github.com/jingting969/productize-your-skills/releases/tag/v0.1.0
 [0.1.1]: https://github.com/jingting969/productize-your-skills/releases/tag/v0.1.1
 [0.1.2]: https://github.com/jingting969/productize-your-skills/releases/tag/v0.1.2
+[0.1.3]: https://github.com/jingting969/productize-your-skills/releases/tag/v0.1.3
