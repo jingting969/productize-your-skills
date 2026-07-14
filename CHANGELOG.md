@@ -4,12 +4,27 @@
 
 格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)。
 
+## [0.1.5] - 2026-07-14
+
+### 修正
+
+- README 大幅精简：263 → 145 行
+- 删除「它解决什么问题」整节（讲故事，不是安装文档该有的内容）
+- 删除 Claude Code 「关于旧的 .claude/commands/」段（兼容细节，99% 用户不关心）
+- 删除 Cursor「Skills 模式 vs Rules 模式」长段（两种路径都未完全验证，先只给一种）
+- 删除「为什么是通用」「好消息」「你正在看的这个」等元评论
+- 工具支持矩阵合并进各工具安装小节
+- Cursor `.cursor/skills/` 改为待官方文档确认（之前推断）
+- 删除「Agent Skills 开放标准」tagline 段（避免重复）
+- 删除项目结构里自指注释
+- 设计原则「工具中立」和「遵循开放标准」合并/删除
+
 ## [0.1.4] - 2026-07-14
 
 ### 修正
 
-- 删除 README 中「为什么是通用」整节（属于元评论，不该出现在安装文档）
-- 删除顶部工具支持矩阵下方的「好消息」段落（同上）
+- 删除 README 中「为什么是通用」整节
+- 删除顶部「好消息」段落
 - README 回归简洁的安装文档形态
 
 ## [0.1.3] - 2026-07-14
@@ -51,3 +66,4 @@
 [0.1.2]: https://github.com/jingting969/productize-your-skills/releases/tag/v0.1.2
 [0.1.3]: https://github.com/jingting969/productize-your-skills/releases/tag/v0.1.3
 [0.1.4]: https://github.com/jingting969/productize-your-skills/releases/tag/v0.1.4
+[0.1.5]: https://github.com/jingting969/productize-your-skills/releases/tag/v0.1.5
