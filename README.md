@@ -32,7 +32,6 @@
 | **ChatGPT**（Custom GPT / Projects） | ✅ | Custom Instructions |
 | **其他任何工具** | ✅ | 粘贴 `SKILL.md` |
 
-> **好消息**：Claude Code 官方明确说 Skills 遵循 **Agent Skills 开放标准**——这意味着 Claude Code、Codex、Cursor 等工具正在向同一套规范靠拢。本 Skill 正是按这个标准实现的。
 
 ---
 
@@ -181,17 +180,6 @@ python3 scripts/validate_case.py
 
 ---
 
-## 为什么是「通用」？
-
-大多数 AI 工具都支持某种形式的"自定义指令"（Skill / Agent / Rule / Command），但叫法和目录不一样。这个 Skill 的做法：
-
-- **`SKILL.md` = 一份自包含的入口提示词**，任何 AI 工具读到它，都能启动能力产品化工作流
-- **`references/` = 按需加载的方法论**，避免污染上下文
-- **`scripts/` = 案例库 CLI**，与 AI 工具无关，可独立运行
-
-**Claude Code 官方明确说 Skills 遵循 Agent Skills 开放标准**——这意味着跨工具的标准正在收敛。本 Skill 直接对齐这个标准，让 Codex / Claude Code / Cursor 都能"开箱即用"。
-
----
 
 ## 项目结构
 
