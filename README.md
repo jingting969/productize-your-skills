@@ -116,7 +116,6 @@ python3 scripts/validate_case.py
 ```text
 productize-your-skills/
 ├── SKILL.md                    # 主入口（所有 AI 工具都读这个）
-├── agents/openai.yaml          # Codex UI 元数据
 ├── references/                 # 按需读取的方法论
 ├── scripts/                    # 案例库 CLI（跨工具）
 ├── tests/                      # 单元测试 + 前向测试

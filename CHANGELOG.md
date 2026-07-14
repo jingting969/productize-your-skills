@@ -4,6 +4,14 @@
 
 格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)。
 
+## [0.1.6] - 2026-07-14
+
+### 变更
+
+- 删除 `agents/openai.yaml` 文件和 `agents/` 目录
+- 原因：未在 Codex 官方文档（openai/codex 仓库）核实到此文件名是 Codex 运行时实际读取的约定
+- README 项目结构同步移除
+
 ## [0.1.5] - 2026-07-14
 
 ### 修正
@@ -67,3 +75,4 @@
 [0.1.3]: https://github.com/jingting969/productize-your-skills/releases/tag/v0.1.3
 [0.1.4]: https://github.com/jingting969/productize-your-skills/releases/tag/v0.1.4
 [0.1.5]: https://github.com/jingting969/productize-your-skills/releases/tag/v0.1.5
+[0.1.6]: https://github.com/jingting969/productize-your-skills/releases/tag/v0.1.6

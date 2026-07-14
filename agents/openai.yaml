@@ -1,4 +1,0 @@
-interface:
-  display_name: "能力产品化"
-  short_description: "从个人经历与能力证据生成可试卖产品、三级定价和首批销售验证方案"
-  default_prompt: "使用 $productize-your-skills 盘点我的能力证据，筛选产品方向，并形成包含交付、边界、三级定价和首次销售验证的方案。"
