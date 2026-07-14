@@ -4,6 +4,17 @@
 
 格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)。
 
+## [0.1.1] - 2026-07-14
+
+### 变更
+
+- README 重写：从「Codex 专属」改为「跨工具通用 Skill」
+- 新增 5 个 AI 工具的安装教程：Codex / Claude Code / Cursor / Trae / OpenCode
+- Claude Code 提供两种集成方式：Subagent 和 Slash Command
+- 明确 Cursor 仅支持单文件规则，并给出限制说明
+- 新增「其他任何 AI 工具」通用安装方式（粘贴 SKILL.md）
+- 设计原则增加「工具中立」一条
+
 ## [0.1.0] - 2026-07-14
 
 ### 新增
@@ -23,4 +34,5 @@
 - CHANGELOG.md
 - LICENSE (MIT)
 
-[0.1.0]: https://github.com/dashuai/productize-your-skills/releases/tag/v0.1.0
+[0.1.0]: https://github.com/jingting969/productize-your-skills/releases/tag/v0.1.0
+[0.1.1]: https://github.com/jingting969/productize-your-skills/releases/tag/v0.1.1
