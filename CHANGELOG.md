@@ -4,6 +4,13 @@
 
 格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)。
 
+## [0.1.7] - 2026-07-14
+
+### 新增
+
+- `docs/retrospectives/2026-07-14-readme-facts.md` 复盘文档：v0.1.0 → v0.1.6 期间 5 次事实错误的根因、原则、自检表
+- `CONTRIBUTING.md` 新增「事实纪律」章节，要求所有贡献者遵守 R1–R7 原则
+
 ## [0.1.6] - 2026-07-14
 
 ### 变更
@@ -76,3 +83,4 @@
 [0.1.4]: https://github.com/jingting969/productize-your-skills/releases/tag/v0.1.4
 [0.1.5]: https://github.com/jingting969/productize-your-skills/releases/tag/v0.1.5
 [0.1.6]: https://github.com/jingting969/productize-your-skills/releases/tag/v0.1.6
+[0.1.7]: https://github.com/jingting969/productize-your-skills/releases/tag/v0.1.7
